@@ -26,7 +26,7 @@ router
             console.log(e);
         }
     })
-    .get("/tasks", async (ctx) => {
+    .get("/task", async (ctx) => {
         try {
             const tasks = await controller.getTasks();
             ctx.body = {
@@ -37,7 +37,7 @@ router
             console.log(e);
         }
     })
-    .get("/tasks/:id", async (ctx) => {
+    .get("/task/:id", async (ctx) => {
         try {
             const id = ctx.params.id;
             const task = await controller.getTask(id);
@@ -53,9 +53,10 @@ router
             console.log(e);
         }
     })
-    .post("/", async (ctx) => {
+    .post("/task", async (ctx) => {
         try {
             const task = ctx.request.body;
+            console.log("task", task);
             const result = await controller.createTask(task);
             ctx.body = {
                 result,
@@ -65,7 +66,7 @@ router
             console.log(e);
         }
     })
-    .put("/tasks/:id", async (ctx) => {
+    .put("/task/:id", async (ctx) => {
         try {
             const id = ctx.params.id;
             const updatedTask = ctx.request.body;
@@ -78,7 +79,7 @@ router
             console.log(e);
         }
     })
-    .delete("/tasks/:id", async (ctx) => {
+    .delete("/task/:id", async (ctx) => {
         try {
             const id = ctx.params.id;
             const deletedTask = await controller.deleteTask(id);

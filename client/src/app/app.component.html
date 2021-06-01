@@ -1,0 +1,25 @@
+<div id="wrapper">
+  
+  <div id="task-list">
+    <div id="list">
+      <h2>Task List</h2>
+
+      <ul>
+        <li *ngFor="let task of tasks$ | async">
+          {{task.name}}
+          <button (click)="display(task)">update</button>
+          <button (click)="deleteTask(task)">delete</button>
+          <!-- <section [hidden]="">
+            <input type="text" >
+            <button (click)="updateTask(task.id)">save</button>
+          </section> -->
+        </li>
+      </ul>
+    </div>
+    <form (ngSubmit)="addTask(newTask.name)">
+      <input type="text" [(ngModel)]="newTask.name" placeholder="Task" name="taskName"/>
+      <button type="submit">+</button>
+    </form>
+  </div>
+  
+</div>

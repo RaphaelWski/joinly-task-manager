@@ -39,7 +39,7 @@ async function createTask(task) {
         let doublon = tasks.filter(item => item.id === task.id);
 
         if(doublon.length) {
-            // console.log("forbiden_id", forbiden_id);
+            console.log("forbiden_id", forbiden_id);
             return forbiden_id;
         } else {
             if(task.name === null || task.name === ""){
